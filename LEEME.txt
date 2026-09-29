@@ -1,0 +1,19 @@
+PREVISUALIZACIÓN DEL LANDING — Huella Tequila (CRT)
+===================================================
+
+Cómo verlo:
+  Abre 'index.html' con doble clic (Chrome, Edge o Firefox).
+
+Qué es:
+  Es SOLO el landing público, para revisar el diseño y darnos observaciones.
+  No incluye la plataforma ni el asistente de captura.
+
+Notas de esta previsualización:
+  - Los botones de AÑO (2027/2028/2029) están DESACTIVADOS aquí: no cambian de
+    página. En el sitio real sí navegan a cada año publicado.
+  - El toggle CARBONO / AGUA y la gráfica SÍ funcionan.
+  - Al hacer scroll en el Panorama, el desglose y la huella neta se van apilando.
+  - Con conexión a internet se ve la tipografía original (Bricolage Grotesque);
+    sin internet se usa una tipografía de sistema parecida.
+
+Para observaciones: anota la sección y qué te gustaría cambiar.

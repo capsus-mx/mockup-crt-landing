@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HUELLA TEQUILA · CRT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+<style>.year-btn{cursor:default}</style>
+</head>
+<body>
+  
+<script id="datos" type="application/json">{"meta": {"producto": "Tequila 40 % Alc. Vol.", "unidadFuncional": "1 L de tequila a 40 % Alc. Vol.", "estado": "ilustrativo", "selloEjemplo": true, "selloTexto": "dato de ejemplo", "notaVigencia": "Cifras ilustrativas (dato de ejemplo) hasta publicar el primer ciclo validado", "isoRefs": [{"codigo": "ISO 14067", "ambito": "carbono", "nombre": "Huella de carbono de productos"}, {"codigo": "ISO 14046", "ambito": "agua", "nombre": "Huella h\u00eddrica (azul y verde)"}], "metas2030": [{"metrica": "carbono", "pct": -25, "texto": "\u221225 % de huella de carbono directa por unidad producida"}, {"metrica": "agua", "pct": -15, "texto": "\u221215 % de consumo de agua por unidad producida"}]}, "catalogoFases": [{"id": "agricola", "orden": 1, "nombre": "Agr\u00edcola", "mayus": "AGR\u00cdCOLA", "color": "#7FA65B", "resumen": "Seis variables de parcela: maquinaria, nutrici\u00f3n del cultivo, agroqu\u00edmicos, agua de riego, lluvia efectiva y cambio de uso de suelo."}, {"id": "transporte", "orden": 2, "nombre": "Transporte", "mayus": "TRANSPORTE", "color": "#C98A46", "resumen": "Tres variables log\u00edsticas del traslado campo\u2013destiler\u00eda: combustible, distancia y carga."}, {"id": "industrial", "orden": 3, "nombre": "Industrial", "mayus": "INDUSTRIAL", "color": "#4C8C9E", "resumen": "Siete variables de proceso: agua, energ\u00eda t\u00e9rmica y el\u00e9ctrica, fermentaci\u00f3n, vinazas y biog\u00e1s."}, {"id": "envasado", "orden": 4, "nombre": "Envasado", "mayus": "ENVASADO", "color": "#D1A23E", "resumen": "Tres variables de producto terminado: materiales, lavado de botella y l\u00ednea de embotellado."}], "catalogoVariables": [{"id": "agroq", "fase": "agricola", "nombre": "Herbicidas y pesticidas", "corto": "Agroqu\u00edmicos", "tipo": "C", "desc": "Volumen o peso aplicado, registrado por ingrediente activo desde el cat\u00e1logo controlado.", "layout": {"x": 22.0, "y": 49.0, "d": 46.0}}, {"id": "aguaAgri", "fase": "agricola", "nombre": "Agua de pozo \u2014 riego (huella azul)", "corto": "Agua de pozo", "tipo": "H", "desc": "Volumen de riego extra\u00eddo de pozo; alimenta la contabilidad de la huella azul.", "layout": {"x": 11.0, "y": 34.0, "d": 50.0}}, {"id": "cus", "fase": "agricola", "nombre": "Cambio de uso de suelo", "corto": "Uso de suelo", "tipo": "C", "desc": "Historial de cambio de uso de suelo de los \u00faltimos 20 a\u00f1os por parcela georreferenciada.", "layout": {"x": 33.0, "y": 20.0, "d": 44.0}}, {"id": "dieselAgri", "fase": "agricola", "nombre": "Di\u00e9sel de maquinaria", "corto": "Di\u00e9sel maquinaria", "tipo": "C", "desc": "Consumo de di\u00e9sel de tractores y equipos de cosecha a nivel parcela.", "layout": {"x": 32.0, "y": 38.0, "d": 64.0}}, {"id": "fert", "fase": "agricola", "nombre": "Fertilizantes sint\u00e9ticos y org\u00e1nicos", "corto": "Fertilizantes", "tipo": "C", "desc": "Cantidad aplicada por hect\u00e1rea: urea-N y otros sint\u00e9ticos, m\u00e1s org\u00e1nicos como compost de bagazo.", "layout": {"x": 20.0, "y": 24.0, "d": 70.0}}, {"id": "precip", "fase": "agricola", "nombre": "Precipitaci\u00f3n efectiva (huella verde)", "corto": "Lluvia efectiva", "tipo": "H", "desc": "Lluvia aprovechada por el cultivo; alimenta la contabilidad de la huella verde.", "layout": {"x": 10.0, "y": 19.0, "d": 44.0}}, {"id": "dieselCam", "fase": "transporte", "nombre": "Di\u00e9sel de camiones de carga", "corto": "Di\u00e9sel camiones", "tipo": "C", "desc": "Consumo total de di\u00e9sel del traslado de agave del campo a la destiler\u00eda.", "layout": {"x": 51.0, "y": 12.0, "d": 54.0}}, {"id": "dist", "fase": "transporte", "nombre": "Distancia promedio", "corto": "Distancia", "tipo": "C", "desc": "Kil\u00f3metros promedio desde las parcelas agr\u00edcolas hasta la f\u00e1brica.", "layout": {"x": 65.0, "y": 14.0, "d": 44.0}}, {"id": "ton", "fase": "transporte", "nombre": "Tonelaje por viaje", "corto": "Tonelaje", "tipo": "C", "desc": "Carga promedio de agave transportada en cada viaje.", "layout": {"x": 42.0, "y": 20.0, "d": 44.0}}, {"id": "aguaInd", "fase": "industrial", "nombre": "Agua de pozo \u2014 procesos y auxiliares", "corto": "Agua de pozo", "tipo": "H", "desc": "Extracci\u00f3n para cocci\u00f3n y diluci\u00f3n, m\u00e1s calderas y sistemas de enfriamiento.", "layout": {"x": 59.0, "y": 56.0, "d": 74.0}}, {"id": "aguaTrat", "fase": "industrial", "nombre": "Agua tratada reincorporada", "corto": "Agua tratada", "tipo": "H", "desc": "Volumen tratado que regresa al medio ambiente o se destina al riego agr\u00edcola.", "layout": {"x": 50.0, "y": 43.0, "d": 58.0}}, {"id": "biogas", "fase": "industrial", "nombre": "Biog\u00e1s fugitivo de PTAR", "corto": "Biog\u00e1s fugitivo", "tipo": "C", "desc": "Emisiones fugitivas de las plantas de tratamiento de aguas residuales anaerobias.", "layout": {"x": 59.0, "y": 29.0, "d": 64.0}}, {"id": "calderas", "fase": "industrial", "nombre": "Combustible de calderas y bagazo", "corto": "Calderas y bagazo", "tipo": "C", "desc": "Gas natural o combust\u00f3leo de calderas, m\u00e1s bagazo aprovechado y quemado t\u00e9rmicamente.", "layout": {"x": 71.0, "y": 41.0, "d": 106.0}}, {"id": "elec", "fase": "industrial", "nombre": "Energ\u00eda el\u00e9ctrica", "corto": "Electricidad", "tipo": "C", "desc": "Consumo el\u00e9ctrico diferenciando suministro de red p\u00fablica y autogeneraci\u00f3n.", "layout": {"x": 85.0, "y": 56.0, "d": 78.0}}, {"id": "levaduras", "fase": "industrial", "nombre": "Levaduras, nutrientes y CO\u2082 directo", "corto": "Levaduras y CO\u2082", "tipo": "C", "desc": "Insumos biol\u00f3gicos de fermentaci\u00f3n y CO\u2082 directo liberado en la etapa.", "layout": {"x": 72.0, "y": 68.0, "d": 58.0}}, {"id": "vinazas", "fase": "industrial", "nombre": "Vinazas \u2014 volumen y DQO/DBO", "corto": "Vinazas", "tipo": "H", "desc": "Volumen y carga org\u00e1nica de las aguas residuales generadas en la destilaci\u00f3n.", "layout": {"x": 85.0, "y": 30.0, "d": 74.0}}, {"id": "energiaLinea", "fase": "envasado", "nombre": "Energ\u00eda de l\u00ednea de embotellado", "corto": "Energ\u00eda de l\u00ednea", "tipo": "C", "desc": "Consumo el\u00e9ctrico espec\u00edfico de la l\u00ednea de embotellado.", "layout": {"x": 44.0, "y": 83.0, "d": 50.0}}, {"id": "envase", "fase": "envasado", "nombre": "Envase, cierres y empaque", "corto": "Envase y empaque", "tipo": "C", "desc": "Peso de botella de vidrio, tap\u00f3n y c\u00e1psula, etiquetado y empaque secundario.", "layout": {"x": 33.0, "y": 72.0, "d": 76.0}}, {"id": "lavado", "fase": "envasado", "nombre": "Agua de lavado de botella", "corto": "Agua de lavado", "tipo": "H", "desc": "Consumo de agua de la lavadora de botellas.", "layout": {"x": 23.0, "y": 83.0, "d": 44.0}}], "catalogoPerfiles": [{"id": "productor", "etiqueta": "PRODUCTOR PRIMARIO", "colorFoco": "#7FA65B", "fases": ["agricola"], "tablasModelo": ["Inventario_Agricola", "Detalle_Agroquimicos"], "nota": "Productor Primario reporta la fase Agr\u00edcola: parcela, insumos, riego y cambio de uso de suelo \u2192 Inventario_Agricola y Detalle_Agroquimicos."}, {"id": "destileria", "etiqueta": "DESTILER\u00cdA", "colorFoco": "#4C8C9E", "fases": ["transporte", "industrial"], "tablasModelo": ["Consumo_Industrial"], "nota": "Destiler\u00eda reporta Transporte e Industrial: log\u00edstica del agave, agua, energ\u00eda, fermentaci\u00f3n y vinazas \u2192 Consumo_Industrial."}, {"id": "envasadora", "etiqueta": "ENVASADORA", "colorFoco": "#D1A23E", "fases": ["envasado"], "tablasModelo": [], "nota": "Envasadora reporta la fase de Envasado: materiales, lavado de botella y energ\u00eda de l\u00ednea de embotellado."}], "perfilNotaVacia": "Elige un perfil para ver qu\u00e9 fases de la cadena te corresponden y qu\u00e9 formulario llenar\u00e1s en la plataforma.", "contenidoEstatico": {"marca": {"wordmark": "HUELLA TEQUILA", "sub": "CRT", "wordmarkProvisional": true}, "hero": {"antetitulo": "TRAZABILIDAD Y HUELLA AMBIENTAL DE LA CADENA DE VALOR DEL TEQUILA", "titulo": "La huella del tequila, medida de la parcela a la botella.", "parrafo": "Carbono bajo ISO 14067 y agua bajo ISO 14046. Cada empresa reporta los datos de su fase; la industria publica la cifra agregada sin exponer a ning\u00fan participante.", "ctaTexto": "CONOCE LA CIFRA", "ctaHref": "#panorama", "sello": "ISO 14067 \u00b7 ISO 14046"}, "acordeon": [{"id": "que", "titulo": "Qu\u00e9 es el sistema", "color": "#948C7E", "cuerpo": "Plataforma centralizada y segura del Consejo Regulador del Tequila para calcular, monitorear y visualizar la huella h\u00eddrica y de carbono de la cadena de valor del tequila. Los datos brutos de cada empresa son visibles solo para ella; el sector publica \u00fanicamente agregados an\u00f3nimos: promedios, tendencias y benchmarking ciego."}, {"id": "fases", "titulo": "Las 4 fases de la cadena de valor", "color": "#7FA65B", "cuerpo": "Agr\u00edcola \u2014 cultivo del Agave tequilana Weber a nivel parcela. Transporte \u2014 del campo a la destiler\u00eda. Industrial \u2014 cocci\u00f3n, molienda, fermentaci\u00f3n y destilaci\u00f3n. Envasado \u2014 botella, cierres, empaque y l\u00ednea de embotellado. Cada fase captura sus propias variables; el motor de validaci\u00f3n impide cruzar datos entre fases."}, {"id": "metodologia", "titulo": "Metodolog\u00eda \u2014 ISO 14067 / ISO 14046", "color": "#4C8C9E", "cuerpo": "La huella de carbono se calcula conforme a ISO 14067 y la h\u00eddrica \u2014azul y verde\u2014 conforme a ISO 14046. Un cat\u00e1logo maestro de insumos controlados provee los factores de emisi\u00f3n e impacto h\u00eddrico vigentes por a\u00f1o fiscal, y los datos pasan por validaciones estructurales, param\u00e9tricas (3\u03c3) y de congruencia operativa antes de entrar al motor de c\u00e1lculo."}, {"id": "clasificacion", "titulo": "C\u00f3mo se clasifica cada empresa", "color": "#C98A46", "cuerpo": "El perfil se asigna seg\u00fan el eslab\u00f3n de la cadena: Productor Primario (fase agr\u00edcola), Destiler\u00eda (transporte e industrial) y Envasadora (envasado y log\u00edstica). El perfil condiciona din\u00e1micamente el formulario de captura; cada empresa ve solo sus datos y su posici\u00f3n en un ranking an\u00f3nimo de eficiencia."}, {"id": "quien", "titulo": "Qui\u00e9n lo desarrolla", "color": "#D1A23E", "cuerpo": "Una iniciativa del Consejo Regulador del Tequila con el Centro Mario Molina (ciencia y metodolog\u00eda) y CAPSUS (desarrollo tecnol\u00f3gico), alineada a las metas 2030 del sector: \u221225 % de huella de carbono directa y \u221215 % de consumo de agua por unidad producida."}], "guias": [{"id": "plataforma", "kicker": "CAPTURA", "titulo": "Plataforma de captura de datos", "desc": "Formularios din\u00e1micos seg\u00fan tu perfil, carga masiva, API e integraci\u00f3n con las bases del CRT. Guarda borradores y retoma cuando tengas el dato.", "href": null, "estilo": {"bg": "#2A241C", "fg": "#E4DFD3", "descColor": "#948C7E", "col": "span 5", "h": "380px", "mt": "0"}}, {"id": "calculadora", "kicker": "HERRAMIENTA", "titulo": "Calculadora de huella", "desc": "Estima carbono y agua por litro con los factores del cat\u00e1logo maestro, antes de tu primer reporte formal.", "href": null, "estilo": {"bg": "#7FA65B", "fg": "#2A241C", "descColor": "rgba(42,36,28,.72)", "col": "span 4", "h": "320px", "mt": "44px"}}, {"id": "insumos", "kicker": "CAT\u00c1LOGO", "titulo": "Insumos controlados", "desc": "Fertilizantes, agroqu\u00edmicos y combustibles con sus factores de emisi\u00f3n e impacto h\u00eddrico vigentes.", "href": null, "estilo": {"bg": "#C98A46", "fg": "#2A241C", "descColor": "rgba(42,36,28,.72)", "col": "span 3", "h": "280px", "mt": "88px"}}, {"id": "baseDatos", "kicker": "DATOS ABIERTOS", "titulo": "Base de datos descargable", "desc": "Agregados an\u00f3nimos del sector por ciclo: promedios, tendencias y avance hacia las metas 2030.", "href": null, "estilo": {"bg": "#D1A23E", "fg": "#2A241C", "descColor": "rgba(42,36,28,.72)", "col": "3 / span 5", "h": "300px", "mt": "0"}}], "recursos": [{"id": "metodologia", "kicker": "METODOLOG\u00cdA", "titulo": "Metodolog\u00eda ISO 14067 / 14046", "desc": "L\u00edmites del sistema, factores de emisi\u00f3n e impacto, huella azul y verde, y reglas de validaci\u00f3n.", "href": null}, {"id": "informes", "kicker": "INFORMES", "titulo": "Informes del sector", "desc": "Resultados agregados por ciclo y avance hacia las metas 2030: \u221225 % carbono, \u221215 % agua.", "href": null}, {"id": "formularios", "kicker": "FORMULARIOS", "titulo": "Formularios por tipo de empresa", "desc": "Productor Primario, Destiler\u00eda y Envasadora: qu\u00e9 reporta cada perfil y con qu\u00e9 evidencia.", "href": null}, {"id": "modelo", "kicker": "MODELO DE DATOS", "titulo": "Tablas del modelo", "desc": "Inventario_Agricola \u00b7 Detalle_Agroquimicos \u00b7 Consumo_Industrial \u2014 diccionario de campos y unidades.", "href": null}, {"id": "proyecto", "kicker": "PROYECTO", "titulo": "L\u00ednea de tiempo", "desc": "Del piloto con empresas voluntarias al primer ciclo p\u00fablico: hitos, talleres y releases.", "href": null}], "creditos": [{"rol": "IMPULSA", "institucion": "CRT \u00b7 Consejo Regulador del Tequila", "logo": null}, {"rol": "CIENCIA Y METODOLOG\u00cdA", "institucion": "CENTRO MARIO MOLINA", "logo": null}, {"rol": "DESARROLLO TECNOL\u00d3GICO", "institucion": "CAPSUS", "logo": null}], "footer": {"descriptor": "Sistema de trazabilidad y huella ambiental de la cadena de valor del tequila. Carbono bajo ISO 14067 \u00b7 agua bajo ISO 14046.", "columnas": [{"titulo": "EL SISTEMA", "links": [{"texto": "Panorama del ciclo", "href": "#panorama"}, {"texto": "Fuentes por fase", "href": "#fuentes"}, {"texto": "Metodolog\u00eda", "href": "#sistema"}]}, {"titulo": "PLATAFORMA", "links": [{"texto": "Captura de datos", "href": "#herramientas"}, {"texto": "Calculadora de huella", "href": "#herramientas"}, {"texto": "Cat\u00e1logo de insumos", "href": "#herramientas"}, {"texto": "Base de datos", "href": "#herramientas"}]}, {"titulo": "RECURSOS", "links": [{"texto": "Informes", "href": "#recursos"}, {"texto": "Formularios por empresa", "href": "#recursos"}, {"texto": "Modelo de datos", "href": "#recursos"}, {"texto": "L\u00ednea de tiempo", "href": "#recursos"}]}], "copyright": "\u00a9 2026 Consejo Regulador del Tequila \u00b7 Centro Mario Molina \u00b7 CAPSUS", "vigencia": "Cifras ilustrativas (dato de ejemplo) hasta publicar el primer ciclo validado \u00b7 ISO 14067 \u00b7 ISO 14046"}, "trayectoria": {"unidadFuncional": "por litro de tequila a 40 % Alc. Vol.", "carbono": {"unidad": "kg CO\u2082e", "ejeYTitulo": "kg de CO\u2082e", "nota": "Alcance 1 y 2 = emisiones directas y por consumo de energ\u00eda \u00b7 Alcance 3 = resto de la cadena de valor \u00b7 cifras ilustrativas (dato de ejemplo)."}, "agua": {"unidad": "L / L", "ejeYTitulo": "L de agua / L", "nota": "Huella h\u00eddrica bruta = agua azul extra\u00edda \u00b7 Huella h\u00eddrica neta = descontando el agua tratada y reincorporada al riego \u00b7 cifras ilustrativas (dato de ejemplo)."}}}, "ciclo": {"anio": 2029, "estado": "publicado", "esIlustrativo": false, "metricas": {"carbono": {"unidadCorta": "kg CO\u2082e / L", "unidadLarga": "kg CO\u2082e por litro de tequila", "decimales": 2, "bruto": 4.66, "reduccion": 0.6, "reduccionConcepto": "Reducciones por tratamiento de vinazas y re\u00faso de agua", "porFase": [{"fase": "agricola", "valor": 0.92, "pct": 20}, {"fase": "transporte", "valor": 0.25, "pct": 5}, {"fase": "industrial", "valor": 2.9, "pct": 62}, {"fase": "envasado", "valor": 0.59, "pct": 13}]}, "agua": {"unidadCorta": "L / L", "unidadLarga": "L de agua por litro de tequila", "decimales": 0, "bruto": 15, "reduccion": 4, "reduccionConcepto": "Agua tratada reincorporada al riego", "porFase": [{"fase": "agricola", "valor": 3, "pct": 20}, {"fase": "transporte", "valor": 0.4, "pct": 3}, {"fase": "industrial", "valor": 9.6, "pct": 64}, {"fase": "envasado", "valor": 2, "pct": 13}]}}, "participacionVariables": {}}, "trayectoria": {"unidadFuncional": "por litro de tequila a 40 % Alc. Vol.", "ejeX": {"min": 2016, "max": 2029, "paso": 2}, "series": {"carbono": {"unidad": "kg CO\u2082e", "ejeY": {"min": 0, "max": 5, "paso": 1, "titulo": "kg de CO\u2082e"}, "datasets": [{"id": "alcance12", "label": "Alcance 1 y 2", "color": "#4C8C9E", "puntos": [{"anio": 2016, "valor": 3.42}, {"anio": 2021, "valor": 3.03}, {"anio": 2025, "valor": 0}, {"anio": 2026, "valor": 2.91}, {"anio": 2027, "valor": 2.85}, {"anio": 2028, "valor": 2.8}, {"anio": 2029, "valor": 2.75}]}, {"id": "alcance3", "label": "Alcance 3", "color": "#C98A46", "puntos": [{"anio": 2021, "valor": 4.29}, {"anio": 2025, "valor": 0}, {"anio": 2026, "valor": 3.8}, {"anio": 2027, "valor": 3.7}, {"anio": 2028, "valor": 3.6}, {"anio": 2029, "valor": 3.55}]}], "nota": "Alcance 1 y 2 = emisiones directas y por consumo de energ\u00eda \u00b7 Alcance 3 = resto de la cadena de valor \u00b7 cifras ilustrativas (dato de ejemplo)."}, "agua": {"unidad": "L / L", "ejeY": {"min": 0, "max": 20, "paso": 5, "titulo": "L de agua / L"}, "datasets": [{"id": "hidricaBruta", "label": "Huella h\u00eddrica bruta", "color": "#4C8C9E", "puntos": [{"anio": 2016, "valor": 17}, {"anio": 2021, "valor": 16}, {"anio": 2025, "valor": 0}, {"anio": 2026, "valor": 15}, {"anio": 2027, "valor": 14.5}, {"anio": 2028, "valor": 14}, {"anio": 2029, "valor": 13.5}]}, {"id": "hidricaNeta", "label": "Huella h\u00eddrica neta", "color": "#C98A46", "puntos": [{"anio": 2021, "valor": 13}, {"anio": 2025, "valor": 0}, {"anio": 2026, "valor": 11}, {"anio": 2027, "valor": 10.5}, {"anio": 2028, "valor": 10}, {"anio": 2029, "valor": 9.5}]}], "nota": "Huella h\u00eddrica bruta = agua azul extra\u00edda \u00b7 Huella h\u00eddrica neta = descontando el agua tratada y reincorporada al riego \u00b7 cifras ilustrativas (dato de ejemplo)."}}}, "ciclosDisponibles": [{"anio": 2027, "esIlustrativo": false}, {"anio": 2028, "esIlustrativo": false}, {"anio": 2029, "esIlustrativo": false}]}</script>
+
+
+<header class="nav">
+  <a class="brand" href="#inicio">
+    <span class="brand-word">HUELLA TEQUILA</span>
+    <span class="brand-sub">CRT</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#panorama">PANORAMA</a><a href="#fuentes">FUENTES</a>
+    <a href="#sistema">EL SISTEMA</a><a href="#recursos">RECURSOS</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <video class="hero-video" autoplay muted playsinline loop poster="img/hero-poster.jpg">
+    <source src="img/Video1.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">TRAZABILIDAD Y HUELLA AMBIENTAL DE LA CADENA DE VALOR DEL TEQUILA</p>
+    <h1 class="hero-title">La huella del tequila, medida de la parcela a la botella.</h1>
+    <p class="hero-lead">Carbono bajo ISO 14067 y agua bajo ISO 14046. Cada empresa reporta los datos de su fase; la industria publica la cifra agregada sin exponer a ningún participante.</p>
+    <a class="btn-ghost" href="#panorama">CONOCE LA CIFRA</a>
+    <p class="hero-iso">ISO 14067 · ISO 14046</p>
+  </div>
+</section>
+
+<!-- PANORAMA — apilado scroll-driven (rail sticky); JS hidrata desde #datos -->
+<section id="panorama" class="panorama-rail" data-rail="b1">
+  <div class="panorama-sticky">
+    <div class="panorama-inner">
+      <div class="section-head">
+        <h2>PANORAMA DEL CICLO DE PRODUCCIÓN</h2>
+        <p class="muted">CICLO 2029<span data-sello> · CIFRAS ILUSTRATIVAS — DATO DE EJEMPLO</span></p>
+        
+        <div class="year-select" role="group" aria-label="Año del ciclo">
+          <span class="year-select-label">AÑO</span>
+          
+          <a data-anio="2027" class="year-btn">2027</a>
+          
+          <a data-anio="2028" class="year-btn">2028</a>
+          
+          <a data-anio="2029" class="year-btn is-active" aria-current="true">2029</a>
+          
+        </div>
+        
+        <div class="toggle" role="group" aria-label="Métrica">
+          <button type="button" data-metric-btn="carbono" class="is-active">CARBONO</button>
+          <button type="button" data-metric-btn="agua">AGUA</button>
+        </div>
+      </div>
+      <div class="panorama-stage">
+        <!-- Fijos: el dibujo del ciclo hace de "suelo" sobre la barra del total -->
+        <img class="ciclo-svg" src="img/tequila_ciclo_de_vida.svg" alt="Ciclo de producción del tequila">
+        <div class="bar-total">
+          <span class="bar-total-num"><b data-bruto-num>—</b> <span data-bruto-unit></span></span>
+          <span class="bar-total-label" data-bruto-label></span>
+          <span class="bar-total-flag" data-sello>DATO DE EJEMPLO</span>
+        </div>
+        <!-- APILA 1 · Desglose por fase (se revela al hacer scroll y permanece) -->
+        <div class="b1-row" data-b1-row="1">
+          <p class="muted small" data-reparto-caption>La misma huella, repartida entre las cuatro fases</p>
+          <div class="bar-split" data-split></div>
+          <div class="legend" data-legend></div>
+        </div>
+        <!-- APILA 2 · Huella neta (se revela al hacer scroll y permanece) -->
+        <div class="b1-row" data-b1-row="2">
+          <div class="neta">
+            <div class="neta-bar"><span>HUELLA NETA</span><span><b data-neta-num>—</b> <span data-neta-unit></span></span></div>
+            <div class="neta-red"><b data-redu-num>—</b><span data-redu-pct></span></div>
+          </div>
+          <p class="muted small"><strong data-neta-titulo></strong> <span data-neta-resto></span></p>
+        </div>
+      </div>
+      <div class="b1-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDA FOTOGRÁFICA 1 -->
+<div class="banda-foto" data-reveal>
+  <img src="img/banda-1.jpg" loading="lazy"
+       alt="Jimador cosechando una piña de agave con su coa al atardecer en un campo de agave azul">
+</div>
+
+<!-- TRAYECTORIA (Chart.js desde datos) -->
+<section id="trayectoria" class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>TRAYECTORIA DE LA HUELLA</h2>
+      <p class="muted">EVOLUCIÓN POR LITRO DE TEQUILA HACIA LAS METAS 2030<span data-sello> · DATO DE EJEMPLO</span></p>
+    </div>
+    <div class="card reveal" data-reveal>
+      <div class="card-head">
+        <h3 data-ch-titulo>Huella por cada litro de tequila</h3>
+        <div class="card-head-right">
+          <div class="toggle" role="group" aria-label="Métrica">
+            <button type="button" data-metric-btn="carbono" class="is-active">CARBONO</button>
+            <button type="button" data-metric-btn="agua">AGUA</button>
+          </div>
+          <div class="legend-inline" data-ch-legend></div>
+        </div>
+      </div>
+      <div class="chart-box"><canvas id="trayectoria-chart"></canvas></div>
+      <p class="muted small" data-ch-nota></p>
+    </div>
+  </div>
+</section>
+
+<!-- FUENTES POR FASE (server-render desde catálogo) -->
+<section id="fuentes" class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>FUENTES POR FASE</h2>
+      <p class="muted">LAS VARIABLES QUE CADA EMPRESA REPORTA<span data-sello> · DATO DE EJEMPLO</span></p></div>
+    <div class="grid-fases reveal" data-reveal>
+      
+      <div class="fase-card" style="border-top:4px solid #7FA65B">
+        <div class="fase-card-head"><span class="dot" style="background:#7FA65B"></span>AGRÍCOLA</div>
+        <p class="muted small">Seis variables de parcela: maquinaria, nutrición del cultivo, agroquímicos, agua de riego, lluvia efectiva y cambio de uso de suelo.</p>
+        <ul class="var-list">
+          
+          <li><span class="var-ring var-C" style="border-color:#7FA65B"></span>Herbicidas y pesticidas</li>
+          
+          <li><span class="var-ring var-H" style="border-color:#7FA65B"></span>Agua de pozo — riego (huella azul)</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#7FA65B"></span>Cambio de uso de suelo</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#7FA65B"></span>Diésel de maquinaria</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#7FA65B"></span>Fertilizantes sintéticos y orgánicos</li>
+          
+          <li><span class="var-ring var-H" style="border-color:#7FA65B"></span>Precipitación efectiva (huella verde)</li>
+          
+        </ul>
+      </div>
+      
+      <div class="fase-card" style="border-top:4px solid #C98A46">
+        <div class="fase-card-head"><span class="dot" style="background:#C98A46"></span>TRANSPORTE</div>
+        <p class="muted small">Tres variables logísticas del traslado campo–destilería: combustible, distancia y carga.</p>
+        <ul class="var-list">
+          
+          <li><span class="var-ring var-C" style="border-color:#C98A46"></span>Diésel de camiones de carga</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#C98A46"></span>Distancia promedio</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#C98A46"></span>Tonelaje por viaje</li>
+          
+        </ul>
+      </div>
+      
+      <div class="fase-card" style="border-top:4px solid #4C8C9E">
+        <div class="fase-card-head"><span class="dot" style="background:#4C8C9E"></span>INDUSTRIAL</div>
+        <p class="muted small">Siete variables de proceso: agua, energía térmica y eléctrica, fermentación, vinazas y biogás.</p>
+        <ul class="var-list">
+          
+          <li><span class="var-ring var-H" style="border-color:#4C8C9E"></span>Agua de pozo — procesos y auxiliares</li>
+          
+          <li><span class="var-ring var-H" style="border-color:#4C8C9E"></span>Agua tratada reincorporada</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#4C8C9E"></span>Biogás fugitivo de PTAR</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#4C8C9E"></span>Combustible de calderas y bagazo</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#4C8C9E"></span>Energía eléctrica</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#4C8C9E"></span>Levaduras, nutrientes y CO₂ directo</li>
+          
+          <li><span class="var-ring var-H" style="border-color:#4C8C9E"></span>Vinazas — volumen y DQO/DBO</li>
+          
+        </ul>
+      </div>
+      
+      <div class="fase-card" style="border-top:4px solid #D1A23E">
+        <div class="fase-card-head"><span class="dot" style="background:#D1A23E"></span>ENVASADO</div>
+        <p class="muted small">Tres variables de producto terminado: materiales, lavado de botella y línea de embotellado.</p>
+        <ul class="var-list">
+          
+          <li><span class="var-ring var-C" style="border-color:#D1A23E"></span>Energía de línea de embotellado</li>
+          
+          <li><span class="var-ring var-C" style="border-color:#D1A23E"></span>Envase, cierres y empaque</li>
+          
+          <li><span class="var-ring var-H" style="border-color:#D1A23E"></span>Agua de lavado de botella</li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    <p class="muted small">Aro continuo = huella de carbono · aro discontinuo = huella hídrica.</p>
+  </div>
+</section>
+
+<!-- EL SISTEMA (acordeón) -->
+<section id="sistema" class="section alt">
+  <div class="wrap">
+    <div class="section-head"><h2>ENTIENDE EL SISTEMA</h2></div>
+    <div class="accordion reveal" data-reveal>
+      
+      <details open>
+        <summary style="color:#948C7E">Qué es el sistema</summary>
+        <p>Plataforma centralizada y segura del Consejo Regulador del Tequila para calcular, monitorear y visualizar la huella hídrica y de carbono de la cadena de valor del tequila. Los datos brutos de cada empresa son visibles solo para ella; el sector publica únicamente agregados anónimos: promedios, tendencias y benchmarking ciego.</p>
+      </details>
+      
+      <details >
+        <summary style="color:#7FA65B">Las 4 fases de la cadena de valor</summary>
+        <p>Agrícola — cultivo del Agave tequilana Weber a nivel parcela. Transporte — del campo a la destilería. Industrial — cocción, molienda, fermentación y destilación. Envasado — botella, cierres, empaque y línea de embotellado. Cada fase captura sus propias variables; el motor de validación impide cruzar datos entre fases.</p>
+      </details>
+      
+      <details >
+        <summary style="color:#4C8C9E">Metodología — ISO 14067 / ISO 14046</summary>
+        <p>La huella de carbono se calcula conforme a ISO 14067 y la hídrica —azul y verde— conforme a ISO 14046. Un catálogo maestro de insumos controlados provee los factores de emisión e impacto hídrico vigentes por año fiscal, y los datos pasan por validaciones estructurales, paramétricas (3σ) y de congruencia operativa antes de entrar al motor de cálculo.</p>
+      </details>
+      
+      <details >
+        <summary style="color:#C98A46">Cómo se clasifica cada empresa</summary>
+        <p>El perfil se asigna según el eslabón de la cadena: Productor Primario (fase agrícola), Destilería (transporte e industrial) y Envasadora (envasado y logística). El perfil condiciona dinámicamente el formulario de captura; cada empresa ve solo sus datos y su posición en un ranking anónimo de eficiencia.</p>
+      </details>
+      
+      <details >
+        <summary style="color:#D1A23E">Quién lo desarrolla</summary>
+        <p>Una iniciativa del Consejo Regulador del Tequila con el Centro Mario Molina (ciencia y metodología) y CAPSUS (desarrollo tecnológico), alineada a las metas 2030 del sector: −25 % de huella de carbono directa y −15 % de consumo de agua por unidad producida.</p>
+      </details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS (guías) -->
+<section id="herramientas" class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>GUÍAS Y HERRAMIENTAS</h2></div>
+    <div class="grid-cards reveal" data-reveal>
+      
+      <a class="tool-card" href="#" style="background:#2A241C;color:#E4DFD3">
+        <span class="kicker">CAPTURA</span>
+        <span class="tool-title">Plataforma de captura de datos</span>
+        <span class="tool-desc" style="color:#948C7E">Formularios dinámicos según tu perfil, carga masiva, API e integración con las bases del CRT. Guarda borradores y retoma cuando tengas el dato.</span>
+      </a>
+      
+      <a class="tool-card" href="#" style="background:#7FA65B;color:#2A241C">
+        <span class="kicker">HERRAMIENTA</span>
+        <span class="tool-title">Calculadora de huella</span>
+        <span class="tool-desc" style="color:rgba(42,36,28,.72)">Estima carbono y agua por litro con los factores del catálogo maestro, antes de tu primer reporte formal.</span>
+      </a>
+      
+      <a class="tool-card" href="#" style="background:#C98A46;color:#2A241C">
+        <span class="kicker">CATÁLOGO</span>
+        <span class="tool-title">Insumos controlados</span>
+        <span class="tool-desc" style="color:rgba(42,36,28,.72)">Fertilizantes, agroquímicos y combustibles con sus factores de emisión e impacto hídrico vigentes.</span>
+      </a>
+      
+      <a class="tool-card" href="#" style="background:#D1A23E;color:#2A241C">
+        <span class="kicker">DATOS ABIERTOS</span>
+        <span class="tool-title">Base de datos descargable</span>
+        <span class="tool-desc" style="color:rgba(42,36,28,.72)">Agregados anónimos del sector por ciclo: promedios, tendencias y avance hacia las metas 2030.</span>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<!-- BANDA FOTOGRÁFICA 2 -->
+<div class="banda-foto" data-reveal>
+  <img src="img/banda-2.jpg" loading="lazy"
+       alt="Jimadores realizando la jima de una piña de agave azul al atardecer">
+</div>
+
+<!-- RECURSOS -->
+<section id="recursos" class="section alt">
+  <div class="wrap">
+    <div class="section-head"><h2>RECURSOS</h2></div>
+    <div class="grid-cards reveal" data-reveal>
+      
+      <a class="res-card" href="#">
+        <span class="kicker">METODOLOGÍA</span>
+        <span class="res-title">Metodología ISO 14067 / 14046</span>
+        <span class="muted small">Límites del sistema, factores de emisión e impacto, huella azul y verde, y reglas de validación.</span>
+      </a>
+      
+      <a class="res-card" href="#">
+        <span class="kicker">INFORMES</span>
+        <span class="res-title">Informes del sector</span>
+        <span class="muted small">Resultados agregados por ciclo y avance hacia las metas 2030: −25 % carbono, −15 % agua.</span>
+      </a>
+      
+      <a class="res-card" href="#">
+        <span class="kicker">FORMULARIOS</span>
+        <span class="res-title">Formularios por tipo de empresa</span>
+        <span class="muted small">Productor Primario, Destilería y Envasadora: qué reporta cada perfil y con qué evidencia.</span>
+      </a>
+      
+      <a class="res-card" href="#">
+        <span class="kicker">MODELO DE DATOS</span>
+        <span class="res-title">Tablas del modelo</span>
+        <span class="muted small">Inventario_Agricola · Detalle_Agroquimicos · Consumo_Industrial — diccionario de campos y unidades.</span>
+      </a>
+      
+      <a class="res-card" href="#">
+        <span class="kicker">PROYECTO</span>
+        <span class="res-title">Línea de tiempo</span>
+        <span class="muted small">Del piloto con empresas voluntarias al primer ciclo público: hitos, talleres y releases.</span>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CRÉDITOS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>QUIÉN LO REALIZA</h2></div>
+    <div class="creditos reveal" data-reveal>
+      
+      <div class="credito"><span class="muted small">IMPULSA</span><span class="credito-inst">CRT · Consejo Regulador del Tequila</span></div>
+      
+      <div class="credito"><span class="muted small">CIENCIA Y METODOLOGÍA</span><span class="credito-inst">CENTRO MARIO MOLINA</span></div>
+      
+      <div class="credito"><span class="muted small">DESARROLLO TECNOLÓGICO</span><span class="credito-inst">CAPSUS</span></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- BANDA FOTOGRÁFICA PIE -->
+<div class="banda-foto banda-foto--pie" data-reveal>
+  <img src="img/banda-pie.jpg" loading="lazy"
+       alt="Campo de agave azul de la Denominación de Origen al atardecer, con el paisaje agavero de Jalisco">
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-desc">Sistema de trazabilidad y huella ambiental de la cadena de valor del tequila. Carbono bajo ISO 14067 · agua bajo ISO 14046.</p>
+    <p class="muted small">© 2026 Consejo Regulador del Tequila · Centro Mario Molina · CAPSUS</p>
+    <p class="muted small" data-sello>Cifras ilustrativas (dato de ejemplo) hasta publicar el primer ciclo validado · ISO 14067 · ISO 14046</p>
+  </div>
+</footer>
+
+
+  
+<script src="js/chart.umd.min.js"></script>
+<script src="js/home.js"></script>
+
+</body>
+</html>
