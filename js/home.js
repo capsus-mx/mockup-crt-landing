@@ -86,6 +86,11 @@
     }
   }
 
+  // ¿El año visible tiene cifra por litro? Si no, se ocultan la escena B y "Fuentes por fase".
+  // Debe quedar ANTES de initPanoramaRail: el rail lo consulta para armar la escena B y los pasos.
+  var hayCalc = !!CALC[ciclo.anio];
+  if (!hayCalc) q("[data-requiere-calc]").forEach(function (n) { n.hidden = true; });
+
   // Panorama scroll-driven (rail sticky): primero la escena A (reparto por etapa) y, al seguir
   // bajando, cede su lugar a la escena B (cifra por litro), que apila alcances y luego fuentes.
   (function initPanoramaRail() {
@@ -153,9 +158,6 @@
     var g = d.grupos.filter(function (x) { return x.id === id; })[0];
     return g ? g.label.split(" · ")[0] : "";
   }
-  // ¿El año visible tiene cifra por litro? Si no, se ocultan la escena B y "Fuentes por fase".
-  var hayCalc = !!CALC[ciclo.anio];
-  if (!hayCalc) q("[data-requiere-calc]").forEach(function (n) { n.hidden = true; });
 
   var scopeChart = null, sourcesChart = null;
   var serieSel = 0;  // serie/alcance mostrado en la gráfica de EVOLUCIÓN (siempre una sola)
