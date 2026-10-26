@@ -1,19 +1,14 @@
-PREVISUALIZACIÓN DEL LANDING — Huella Tequila (CRT)
-===================================================
+PREVISUALIZACIÓN DEL LANDING — Indicadores de Sostenibilidad de la Cadena Agave–Tequila (CRT)
+=============================================================================================
 
-Cómo verlo:
-  Abre 'index.html' con doble clic (Chrome, Edge o Firefox).
+Cómo verlo:  abre 'index.html' con doble clic (Chrome, Edge o Firefox).
 
-Qué es:
-  Es SOLO el landing público, para revisar el diseño y darnos observaciones.
-  No incluye la plataforma ni el asistente de captura.
+Qué es:  SOLO el landing público, para revisar el diseño y darnos observaciones.
 
 Notas de esta previsualización:
-  - Los botones de AÑO (2027/2028/2029) están DESACTIVADOS aquí: no cambian de
-    página. En el sitio real sí navegan a cada año publicado.
-  - El toggle CARBONO / AGUA y la gráfica SÍ funcionan.
-  - Al hacer scroll en el Panorama, el desglose y la huella neta se van apilando.
-  - Con conexión a internet se ve la tipografía original (Bricolage Grotesque);
-    sin internet se usa una tipografía de sistema parecida.
-
-Para observaciones: anota la sección y qué te gustaría cambiar.
+  - Contenido alineado a la presentación de la ESCAT 2026-2027 (4 pilares, 15 productos,
+    línea de tiempo y cifras de la calculadora). Algunas cifras siguen siendo de ejemplo.
+  - Los botones de AÑO están DESACTIVADOS aquí (no cambian de página).
+  - Sí funcionan: pilares (clic abre su detalle), toggle HUELLA CARBONO/HÍDRICA,
+    el selector de ALCANCE en la gráfica de evolución, la dona de fuentes,
+    el menú 'Acerca de' y el apilado del panorama al scroll.
